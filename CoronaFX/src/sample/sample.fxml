@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="608.0" prefWidth="1008.0" style="-fx-background-color: rgba(0, 0, 0, 0);;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <AnchorPane layoutX="384.0" layoutY="35.0" prefHeight="538.0" prefWidth="344.0" style="-fx-background-color: #cfcfcf; -fx-background-radius: 1em;" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="375.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="35.0">
+         <children>
+            <BarChart fx:id="graf" alternativeRowFillVisible="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="76.0" layoutY="69.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+              <xAxis>
+                <CategoryAxis label="Štát" side="BOTTOM" fx:id="x" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis fx:id="y" label="Počet" side="LEFT" />
+              </yAxis>
+            </BarChart>
+         </children></AnchorPane>
+      <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="579.0" prefWidth="400.0" style="-fx-background-color: linear-gradient(to right top, #7b4397, #a1338a, #c01d73, #d40d55, #dc2430);; -fx-background-radius: 1em;" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
+         <children>
+            <Label fx:id="title" layoutX="97.0" layoutY="43.0" prefHeight="109.0" prefWidth="206.0" text="CoronaFX">
+               <font>
+                  <Font name="Agency FB" size="68.0" />
+               </font>
+            </Label>
+            <Label layoutX="94.0" layoutY="182.0" prefHeight="28.0" prefWidth="70.0" text="Krajina:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="country" layoutX="165.0" layoutY="182.0" />
+            <Label fx:id="totalLabel" layoutX="142.0" layoutY="257.0" text="Spolu:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="deathsLabel" layoutX="142.0" layoutY="282.0" text="Úmrtia:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="recoveredLabel" layoutX="142.0" layoutY="307.0" text="Zotavení:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="activeLabel" layoutX="142.0" layoutY="334.0" text="Nakazení:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Button fx:id="getData" layoutX="166.0" layoutY="220.0" mnemonicParsing="false" onAction="#run" text="Aktualizovať" />
+            <Button layoutX="2.0" layoutY="2.0" mnemonicParsing="false" onAction="#exit" prefHeight="12.0" prefWidth="13.0" style="-fx-background-radius: 1em; -fx-background-color: #c41512;" text="X" textFill="WHITE">
+               <font>
+                  <Font size="8.0" />
+               </font>
+            </Button>
+            <Button layoutX="262.0" layoutY="220.0" mnemonicParsing="false" onAction="#graph" text="Graf" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
