@@ -12,16 +12,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
-import javafx.stage.Stage;
+import javafx.scene.layout.BorderPane;
 
-import java.awt.event.MouseEvent;
+import java.awt.event.ActionEvent;
 import java.io.*;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.sql.SQLOutput;
-import java.util.ResourceBundle;
-import java.util.Stack;
 
 
 public class Controller {
@@ -33,7 +29,6 @@ public class Controller {
     @FXML Label activeLabel;
     @FXML Label title;
     @FXML AnchorPane background;
-    @FXML BarChart barChart;
 
     @FXML
     private BarChart<?, ?> graf;
@@ -43,6 +38,9 @@ public class Controller {
 
     @FXML
     private NumberAxis y;
+
+    @FXML AnchorPane graphPane;
+    @FXML Button graphButton;
 
 
  public void run() throws IOException {
@@ -61,7 +59,7 @@ public class Controller {
          URLConnection conn = url.openConnection();
          BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
          String inputLine;
-         String fileName = "D:\\Users\\Adrian\\Desktop\\CoronaData\\countries.json";
+         String fileName = "countries.json";
          File file = new File(fileName);
          if (!file.exists()) {
              file.createNewFile();
@@ -78,41 +76,35 @@ public class Controller {
          br.close();
          splitData();
      } catch (FileNotFoundException e) {
-         e.printStackTrace();
          totalLabel.setText("Spolu: "+ 0);
          deathsLabel.setText("Úmrtia: "+ 0);
          recoveredLabel.setText("Zotavení: "+0);
          activeLabel.setText("Aktívny: "+ 0);
          country.setText("Krajina neexistuje");
      } catch (IOException e){
-         e.printStackTrace();
      }
 
  }
 
  private void splitData() throws IOException {
-     File file = new File("D:\\Users\\Adrian\\Desktop\\CoronaData\\countries.json");
+     File file = new File("countries.json");
      BufferedReader reader = new BufferedReader(new FileReader(file));
 
      String data = reader.readLine();
      String [] totalDirty = data.split("\"cases\":");
      String [] total = totalDirty[1].split(",");
-     System.out.println("Total: "+total[0]);
      totalLabel.setText("Spolu: "+total[0]);
 
      String [] deathsDirty = totalDirty[1].split("\"deaths\":");
      String [] deaths = deathsDirty[1].split(",");
-     System.out.println("Deaths: "+deaths[0]);
      deathsLabel.setText("Úmrtia: "+deaths[0]);
 
      String [] recoveredDirty = deathsDirty[1].split("\"recovered\":");
      String [] recovered = recoveredDirty[1].split(",");
-     System.out.println("Recovered: "+recovered[0]);
      recoveredLabel.setText("Zotavení: "+recovered[0]);
 
      String [] activeDirty = recoveredDirty[1].split("\"active\":");
      String [] active = activeDirty[1].split(",");
-     System.out.println("Active: "+active[0]);
      activeLabel.setText("Aktívny: "+active[0]);
  }
 
@@ -120,14 +112,32 @@ public class Controller {
      System.exit(0);
  }
 
-    public void graph() {
-        XYChart.Series set1 = new XYChart.Series<>();
+    XYChart.Series set1 = new XYChart.Series<>();
+ boolean clicked = false;
+ public void graph() throws IOException {
+     graphPane.setVisible(true);
+     Border border = new Border();
+     border.getBorder();
+     border.splitBorder();
+     x.setAnimated(false);
+     if (!clicked) {
+         set1.getData().add(new XYChart.Data("Slovensko", border.activeCases.get(0)));
+         set1.getData().add(new XYChart.Data("Česko", border.activeCases.get(1)));
+         set1.getData().add(new XYChart.Data("Poľsko", border.activeCases.get(2)));
+         set1.getData().add(new XYChart.Data("Ukrajina", border.activeCases.get(3)));
+         set1.getData().add(new XYChart.Data("Maďarsko", border.activeCases.get(4)));
+         set1.getData().add(new XYChart.Data("Rakúsko", border.activeCases.get(5)));
+         graf.getData().addAll(set1);
+     }
+        graphButton.setVisible(false);
+        //graf.setAnimated(false);
+        clicked = true;
+    }
 
-        set1.getData().add(new XYChart.Data("James", 20));
-        set1.getData().add(new XYChart.Data("Alice", 40));
-        set1.getData().add(new XYChart.Data("Alex", 200));
-
-        graf.getData().addAll(set1);
+    public void hideGraph(){
+     graphPane.setVisible(false);
+     //graf.setAnimated(true);
+     graphButton.setVisible(true);
     }
 
 }
