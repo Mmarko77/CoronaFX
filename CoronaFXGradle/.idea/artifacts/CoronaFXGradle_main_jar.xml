@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CoronaFXGradle.main:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CoronaFXGradle_main_jar</output-path>
+    <root id="archive" name="CoronaFXGradle.main.jar">
+      <element id="module-output" name="CoronaFXGradle.main" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.openjfx/javafx-base/14.0.1/da47cadc79d42479e3096fb7e2bd053eaebf3d65/javafx-base-14.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.openjfx/javafx-base/14.0.1/25ded1a1d5c352b638e0589be0ebdd11dbdb9f5/javafx-base-14.0.1-win.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.openjfx/javafx-fxml/14.0.1/d605397de87b65ade3e8abbcee19c12bc9dbf378/javafx-fxml-14.0.1-win.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.openjfx/javafx-graphics/14.0.1/aed3fbe030dd62f7ea35a2be908ada9ab091d6cd/javafx-graphics-14.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.openjfx/javafx-controls/14.0.1/98acf95fe3f8b0723962f82da033d571765f33c4/javafx-controls-14.0.1-win.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.openjfx/javafx-graphics/14.0.1/55509abe384b49a4d1bf2de6c6c731d287633195/javafx-graphics-14.0.1-win.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jfoenix/jfoenix/9.0.5/4f54a594fe2c11f8058b884b3d1c5b47b9174f75/jfoenix-9.0.5.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.openjfx/javafx-controls/14.0.1/989900b2f42f886379ff264179596de714c91002/javafx-controls-14.0.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

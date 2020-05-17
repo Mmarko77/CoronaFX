@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+}
+
+mainClassName = "com.coronafx.Main"
+
+javafx{
+    version = "14.0.1"
+    modules = ["javafx.controls", "javafx.fxml"]
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+run{
+    jvmArgs = ["--add-exports=javafx.graphics/com.sun.javafx.scene=com.jfoenix"]
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'com.jfoenix', name: 'jfoenix', version: '9.0.5'
+}
