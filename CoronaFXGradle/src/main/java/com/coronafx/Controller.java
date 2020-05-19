@@ -14,6 +14,7 @@ import javafx.scene.layout.Background;
 import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
+import java.text.DecimalFormat;
 
 public class Controller {
     @FXML Button getData;
@@ -69,10 +70,10 @@ public class Controller {
          splitData();
 
      } catch (FileNotFoundException e) {
-         totalLabel.setText("Spolu: "+ 0);
-         deathsLabel.setText("Úmrtia: "+ 0);
-         recoveredLabel.setText("Zotavení: "+0);
-         activeLabel.setText("Aktívny: "+ 0);
+         totalLabel.setText("Spolu: -");
+         deathsLabel.setText("Úmrtia: -");
+         recoveredLabel.setText("Zotavení: -");
+         activeLabel.setText("Nakazení: -");
          country.setText("Krajina neexistuje");
 
      } catch (IOException ignored){
@@ -81,13 +82,15 @@ public class Controller {
  }
 
  private void splitData() throws IOException {
+     //DecimalFormat formatter = new DecimalFormat("###.###.###");
      File file = new File("src/main/resources/data/countries.json");
      BufferedReader reader = new BufferedReader(new FileReader(file));
 
      String data = reader.readLine();
      String [] totalDirty = data.split("\"cases\":");
      String [] total = totalDirty[1].split(",");
-     totalLabel.setText("Spolu: "+total[0]);
+     //int totalInt = Integer.parseInt(total[0]);
+     totalLabel.setText("Spolu: "/*+formatter.format(totalInt)*/+total[0]);
 
      String [] deathsDirty = totalDirty[1].split("\"deaths\":");
      String [] deaths = deathsDirty[1].split(",");
@@ -99,7 +102,7 @@ public class Controller {
 
      String [] activeDirty = recoveredDirty[1].split("\"active\":");
      String [] active = activeDirty[1].split(",");
-     activeLabel.setText("Aktívny: "+active[0]);
+     activeLabel.setText("Nakazení: "+active[0]);
  }
 
  public void exit(){
