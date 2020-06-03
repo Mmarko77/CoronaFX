@@ -105,15 +105,13 @@ public class Controller implements Initializable {
     }
 
     private void splitData() throws IOException {
-        //DecimalFormat formatter = new DecimalFormat("###.###.###");
         File file = new File("src/main/resources/data/countries.json");
         BufferedReader reader = new BufferedReader(new FileReader(file));
 
         String data = reader.readLine();
         String[] totalDirty = data.split("\"cases\":");
         String[] total = totalDirty[1].split(",");
-        //int totalInt = Integer.parseInt(total[0]);
-        totalLabel.setText("Spolu: "/*+formatter.format(totalInt)*/ + total[0]);
+        totalLabel.setText("Spolu: " + total[0]);
 
         String[] deathsDirty = totalDirty[1].split("\"deaths\":");
         String[] deaths = deathsDirty[1].split(",");
@@ -153,19 +151,37 @@ public class Controller implements Initializable {
     String CBValue = "";
 
     public void parseCBValue() {
-
+        y.setLabel(comboBox.getValue());
         switch (comboBox.getValue()) {
             case "Spolu":
-                CBValue = "\"cases\":";
+                CBValue = "cases";
                 break;
             case "Úmrtia":
-                CBValue = "\"deaths\":";
+                CBValue = "deaths";
                 break;
             case "Zotavení":
-                CBValue = "\"recovered\":";
+                CBValue = "recovered";
                 break;
             case "Nakazení":
-                CBValue = "\"active\":";
+                CBValue = "active";
+                break;
+            case "Testovaní":
+                CBValue = "tests";
+                break;
+            case "Nakazení dnes":
+                CBValue = "todayCases";
+                break;
+            case "Úmrtia dnes":
+                CBValue = "todayDeaths";
+                break;
+            case "Prípadov na milión":
+                CBValue = "casesPerOneMillion";
+                break;
+            case "Úmrtia na milión":
+                CBValue = "deathsPerOneMillion";
+                break;
+            case "Testov na milión":
+                CBValue = "testsPerOneMillion";
                 break;
         }
         Border border = new Border();
@@ -197,7 +213,13 @@ public class Controller implements Initializable {
                 "Spolu",
                 "Úmrtia",
                 "Zotavení",
-                "Nakazení"
+                "Nakazení",
+                "Testovaní",
+                "Nakazení dnes",
+                "Úmrtia dnes",
+                "Prípadov na milión",
+                "Úmrtia na milión",
+                "Testov na milión"
         );
         comboBox.getItems().addAll(options);
     }

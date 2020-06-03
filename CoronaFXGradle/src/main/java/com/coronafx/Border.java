@@ -51,17 +51,35 @@ public class Border {
                 default:
                     activeDirty = data.split("\"active\":");
                     break;
-                case "\"cases\":":
+                case "cases":
                     activeDirty = data.split("\"cases\":");
                     break;
-                case "\"active\":":
+                case "active":
                     activeDirty = data.split("\"active\":");
                     break;
-                case "\"deaths\":":
+                case "deaths":
                     activeDirty = data.split("\"deaths\":");
                     break;
-                case "\"recovered\":":
+                case "recovered":
                     activeDirty = data.split("\"recovered\":");
+                    break;
+                case "tests":
+                    activeDirty = data.split("\"tests\":");
+                    break;
+                case "todayCases":
+                    activeDirty = data.split("\"todayCases\":");
+                    break;
+                case "todayDeaths":
+                    activeDirty = data.split("\"todayDeaths\":");
+                    break;
+                case "casesPerOneMillion":
+                    activeDirty = data.split("\"casesPerOneMillion\":");
+                    break;
+                case "testsPerOneMillion":
+                    activeDirty = data.split("\"testsPerOneMillion\":");
+                    break;
+                case "deathsPerOneMillion":
+                    activeDirty = data.split("\"deathsPerOneMillion\":");
                     break;
 
             }
