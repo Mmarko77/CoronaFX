@@ -12,13 +12,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 
-import java.text.DecimalFormat;
 
-import java.awt.event.ActionEvent;
 import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
@@ -183,6 +180,9 @@ public class Controller implements Initializable {
             case "Testov na milión":
                 CBValue = "testsPerOneMillion";
                 break;
+            case "Populácia":
+                CBValue = "population";
+                break;
         }
         Border border = new Border();
         border.getBorder();
@@ -219,7 +219,8 @@ public class Controller implements Initializable {
                 "Úmrtia dnes",
                 "Prípadov na milión",
                 "Úmrtia na milión",
-                "Testov na milión"
+                "Testov na milión",
+                "Populácia"
         );
         comboBox.getItems().addAll(options);
     }

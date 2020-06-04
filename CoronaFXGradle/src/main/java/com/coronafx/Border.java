@@ -81,7 +81,9 @@ public class Border {
                 case "deathsPerOneMillion":
                     activeDirty = data.split("\"deathsPerOneMillion\":");
                     break;
-
+                case "population":
+                    activeDirty = data.split("\"population\":");
+                    break;
             }
             active = activeDirty[1].split(",");
             activeCases.add(Integer.parseInt(active[0]));

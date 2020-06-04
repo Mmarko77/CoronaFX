@@ -4,6 +4,7 @@
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDrawer?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
@@ -16,7 +17,10 @@
    <children>
       <AnchorPane fx:id="graphPane" layoutX="384.0" layoutY="35.0" prefHeight="538.0" prefWidth="344.0" style="-fx-background-color: #cfcfcf; -fx-background-radius: 1em;" visible="false" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="375.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="35.0">
          <children>
-            <JFXComboBox fx:id="comboBox" focusColor="#ff6a00" layoutX="279.0" layoutY="45.0" onAction="#parseCBValue" prefHeight="25.0" prefWidth="120.0" promptText="Vyberte možnosť" unFocusColor="BLACK" />
+            <JFXComboBox fx:id="comboBox" focusColor="#ff6a00" layoutX="279.0" layoutY="45.0" onAction="#parseCBValue" prefHeight="25.0" prefWidth="120.0" promptText="Vyberte možnosť" unFocusColor="BLACK">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></JFXComboBox>
             <BarChart fx:id="graf" alternativeRowFillVisible="false" animated="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="47.0" layoutY="101.0" legendVisible="false" prefHeight="400.0" prefWidth="552.0" style="-fx-background-color: #cfcfcf;" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
               <xAxis>
                 <CategoryAxis label="Štát" side="BOTTOM" fx:id="x" />
@@ -29,6 +33,9 @@
                <font>
                   <Font size="8.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children></AnchorPane>
       <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="579.0" prefWidth="400.0" style="-fx-background-color: linear-gradient(to right top, #ee0979, #fc1c62, #ff364a, #ff512f, #ff6a00);; -fx-background-radius: 1em;" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
@@ -53,7 +60,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="activeLabel" layoutX="74.0" layoutY="477.0" text="Nakazení:" textFill="WHITE">
+            <Label fx:id="activeLabel" layoutX="74.0" layoutY="478.0" text="Nakazení:" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
@@ -62,16 +69,25 @@
                <font>
                   <Font size="8.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <JFXDrawer layoutX="29.0" layoutY="432.0" />
             <JFXButton fx:id="getData" buttonType="RAISED" layoutX="89.0" layoutY="230.0" onAction="#run" prefHeight="31.0" prefWidth="106.0" ripplerFill="BLACK" text="Aktualizovať" textFill="WHITE">
                <font>
                   <Font size="15.0" />
-               </font></JFXButton>
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></JFXButton>
             <JFXButton fx:id="graphButton" buttonType="RAISED" layoutX="233.0" layoutY="230.0" onAction="#graph" ripplerFill="BLACK" text="Graf" textFill="WHITE">
                <font>
                   <Font size="15.0" />
-               </font></JFXButton>
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></JFXButton>
             <JFXTextField fx:id="country" focusColor="WHITE" labelFloat="true" layoutX="97.0" layoutY="170.0" prefHeight="42.0" prefWidth="206.0" promptText="Krajina (prázdne pre celý svet)" unFocusColor="BLACK">
                <font>
                   <Font size="15.0" />
