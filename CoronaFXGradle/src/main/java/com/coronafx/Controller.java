@@ -192,12 +192,12 @@ public class Controller implements Initializable {
             e.printStackTrace();
         }
         set1.getData().clear();
-        set1.getData().add(new XYChart.Data("Slovensko", border.activeCases.get(0)));
-        set1.getData().add(new XYChart.Data("Česko", border.activeCases.get(1)));
-        set1.getData().add(new XYChart.Data("Poľsko", border.activeCases.get(2)));
-        set1.getData().add(new XYChart.Data("Ukrajina", border.activeCases.get(3)));
-        set1.getData().add(new XYChart.Data("Maďarsko", border.activeCases.get(4)));
-        set1.getData().add(new XYChart.Data("Rakúsko", border.activeCases.get(5)));
+        set1.getData().add(new XYChart.Data("Slovensko", border.dataList.get(0)));
+        set1.getData().add(new XYChart.Data("Česko", border.dataList.get(1)));
+        set1.getData().add(new XYChart.Data("Poľsko", border.dataList.get(2)));
+        set1.getData().add(new XYChart.Data("Ukrajina", border.dataList.get(3)));
+        set1.getData().add(new XYChart.Data("Maďarsko", border.dataList.get(4)));
+        set1.getData().add(new XYChart.Data("Rakúsko", border.dataList.get(5)));
         try {
             graf.getData().addAll(set1);
         } catch (IllegalArgumentException ignored){}

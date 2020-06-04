@@ -33,6 +33,9 @@
                <font>
                   <Font size="8.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children></AnchorPane>
       <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="579.0" prefWidth="400.0" style="-fx-background-color: linear-gradient(to right top, #ee0979, #fc1c62, #ff364a, #ff512f, #ff6a00);; -fx-background-radius: 1em;" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
@@ -66,6 +69,9 @@
                <font>
                   <Font size="8.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <JFXDrawer layoutX="29.0" layoutY="432.0" />
             <JFXButton fx:id="getData" buttonType="RAISED" layoutX="89.0" layoutY="230.0" onAction="#run" prefHeight="31.0" prefWidth="106.0" ripplerFill="BLACK" text="Aktualizovať" textFill="WHITE">

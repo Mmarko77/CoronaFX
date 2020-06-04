@@ -6,8 +6,10 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 
 public class Border {
-    ArrayList<Integer> activeCases = new ArrayList<Integer>();
+
+    ArrayList<Integer> dataList = new ArrayList<Integer>();
     private String [] countries = {"slovakia", "czechia", "poland", "ukraine", "hungary", "austria"};
+
     void getBorder(){
         for (String country : countries) {
             URL url;
@@ -21,9 +23,9 @@ public class Border {
                 String inputLine;
                 String fileName = country + ".json";
                 File file = new File("src/main/resources/data/" + fileName);
-               /* if (!file.exists()) {
+                if (!file.exists()) {
                     file.createNewFile();
-                }*/
+                }
 
                 FileWriter fw = new FileWriter(file.getAbsoluteFile());
                 BufferedWriter bw = new BufferedWriter(fw);
@@ -41,52 +43,52 @@ public class Border {
     }
 
     void splitBorder(String CBValue) throws IOException {
-        String [] active;
-        String [] activeDirty;
+        String [] info;
+        String [] infoDirty;
         for (String country : countries) {
             File file = new File("src/main/resources/data/" + country + ".json");
             BufferedReader reader = new BufferedReader(new FileReader(file));
             String data = reader.readLine();
             switch (CBValue){
                 default:
-                    activeDirty = data.split("\"active\":");
+                    infoDirty = data.split("\"active\":");
                     break;
                 case "cases":
-                    activeDirty = data.split("\"cases\":");
+                    infoDirty = data.split("\"cases\":");
                     break;
                 case "active":
-                    activeDirty = data.split("\"active\":");
+                    infoDirty = data.split("\"active\":");
                     break;
                 case "deaths":
-                    activeDirty = data.split("\"deaths\":");
+                    infoDirty = data.split("\"deaths\":");
                     break;
                 case "recovered":
-                    activeDirty = data.split("\"recovered\":");
+                    infoDirty = data.split("\"recovered\":");
                     break;
                 case "tests":
-                    activeDirty = data.split("\"tests\":");
+                    infoDirty = data.split("\"tests\":");
                     break;
                 case "todayCases":
-                    activeDirty = data.split("\"todayCases\":");
+                    infoDirty = data.split("\"todayCases\":");
                     break;
                 case "todayDeaths":
-                    activeDirty = data.split("\"todayDeaths\":");
+                    infoDirty = data.split("\"todayDeaths\":");
                     break;
                 case "casesPerOneMillion":
-                    activeDirty = data.split("\"casesPerOneMillion\":");
+                    infoDirty = data.split("\"casesPerOneMillion\":");
                     break;
                 case "testsPerOneMillion":
-                    activeDirty = data.split("\"testsPerOneMillion\":");
+                    infoDirty = data.split("\"testsPerOneMillion\":");
                     break;
                 case "deathsPerOneMillion":
-                    activeDirty = data.split("\"deathsPerOneMillion\":");
+                    infoDirty = data.split("\"deathsPerOneMillion\":");
                     break;
                 case "population":
-                    activeDirty = data.split("\"population\":");
+                    infoDirty = data.split("\"population\":");
                     break;
             }
-            active = activeDirty[1].split(",");
-            activeCases.add(Integer.parseInt(active[0]));
+            info = infoDirty[1].split(",");
+            dataList.add(Integer.parseInt(info[0]));
         }
     }
 }
