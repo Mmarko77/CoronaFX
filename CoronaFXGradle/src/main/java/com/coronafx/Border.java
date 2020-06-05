@@ -8,9 +8,8 @@ import java.util.ArrayList;
 public class Border {
 
     ArrayList<Integer> dataList = new ArrayList<Integer>();
-    private String [] countries = {"slovakia", "czechia", "poland", "ukraine", "hungary", "austria"};
-
-    void getBorder(){
+    private String[] countries = {"slovakia", "czechia", "poland", "ukraine", "hungary", "austria"};
+    void getBorder() {
         for (String country : countries) {
             URL url;
             String dataUrl;
@@ -43,13 +42,14 @@ public class Border {
     }
 
     void splitBorder(String CBValue) throws IOException {
-        String [] info;
-        String [] infoDirty;
+        String[] info = new String[2];
+        String[] infoDirty = {};
+        int infoRec = 0;
         for (String country : countries) {
             File file = new File("src/main/resources/data/" + country + ".json");
             BufferedReader reader = new BufferedReader(new FileReader(file));
             String data = reader.readLine();
-            switch (CBValue){
+            switch (CBValue) {
                 default:
                     infoDirty = data.split("\"active\":");
                     break;
@@ -86,9 +86,30 @@ public class Border {
                 case "population":
                     infoDirty = data.split("\"population\":");
                     break;
+                case "recoveredPer":
+                    String[] tempDirty = data.split("\"cases\":");
+                    String[] temp = tempDirty[1].split(",");
+                    double tempD = Double.parseDouble(temp[0]);
+
+                    String[] tempDirty1 = temp[1].split("\"recovered\":");
+                    String[] temp1 = tempDirty1[1].split(",");
+                    double tempD1 = Double.parseDouble(temp1[0]);
+
+                    infoRec = (int) ((tempD1 / tempD) * 100);
+                    break;
             }
-            info = infoDirty[1].split(",");
-            dataList.add(Integer.parseInt(info[0]));
+
+
+            if (CBValue == "recoveredPer"){
+                dataList.add(infoRec);
+            } else{
+                info = infoDirty[1].split(",");
+                dataList.add(Integer.parseInt(info[0]));
+            }
+
         }
+
+
     }
 }
+

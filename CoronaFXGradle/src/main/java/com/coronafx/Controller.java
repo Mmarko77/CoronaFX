@@ -159,6 +159,9 @@ public class Controller implements Initializable {
             case "Zotavení":
                 CBValue = "recovered";
                 break;
+            case "Zotavení (%)":
+                CBValue = "recoveredPer";
+                break;
             case "Nakazení":
                 CBValue = "active";
                 break;
@@ -213,6 +216,7 @@ public class Controller implements Initializable {
                 "Spolu",
                 "Úmrtia",
                 "Zotavení",
+                "Zotavení (%)",
                 "Nakazení",
                 "Testovaní",
                 "Nakazení dnes",
