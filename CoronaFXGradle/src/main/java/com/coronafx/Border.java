@@ -42,9 +42,9 @@ public class Border {
     }
 
     void splitBorder(String CBValue) throws IOException {
-        String[] info = new String[2];
+        String[] info;
         String[] infoDirty = {};
-        int infoRec = 0;
+        //int infoRec = 0;
         for (String country : countries) {
             File file = new File("src/main/resources/data/" + country + ".json");
             BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -86,7 +86,7 @@ public class Border {
                 case "population":
                     infoDirty = data.split("\"population\":");
                     break;
-                case "recoveredPer":
+               /* case "recoveredPer":
                     String[] tempDirty = data.split("\"cases\":");
                     String[] temp = tempDirty[1].split(",");
                     double tempD = Double.parseDouble(temp[0]);
@@ -96,17 +96,18 @@ public class Border {
                     double tempD1 = Double.parseDouble(temp1[0]);
 
                     infoRec = (int) ((tempD1 / tempD) * 100);
-                    break;
+                    break;*/
             }
 
 
-            if (CBValue == "recoveredPer"){
+            /*if (CBValue == "recoveredPer"){
                 dataList.add(infoRec);
             } else{
                 info = infoDirty[1].split(",");
                 dataList.add(Integer.parseInt(info[0]));
-            }
-
+            }*/
+            info = infoDirty[1].split(",");
+            dataList.add(Integer.parseInt(info[0]));
         }
 
 
